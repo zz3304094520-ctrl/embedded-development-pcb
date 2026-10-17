@@ -1,9 +1,6 @@
-# 开发板手册
+# 开发板参考手册
 
-- [ESP32 开发板中文手册](esp-dev-kits-zh_CN-master-esp32.pdf)
-- [ESP32-S3 原理图 V1.4](ESP32-S3-SCH-V1.4.pdf)
-- [ESP32-S3 公制尺寸图](ESP32-S3-Metric.pdf)
-- [ESP32-S3 英制尺寸图](ESP32-S3-inch.pdf)
-- [ESP32-S3-WROOM 系列型号对比](ESP32-S3-WROOM系列型号对比.png)
+- [ESP32开发板中文手册](esp-dev-kits-zh_CN-master-esp32.pdf)
+- [开发板原理图、尺寸图与型号对比](../../../设计图/ESP32/开发板图纸/README.md)
 
-[返回 ESP32 资料](../README.md)
+[返回ESP32资料](../README.md)
