@@ -1,0 +1,75 @@
+{
+  "revision": "结构细化V2_20260930",
+  "nominal_bay_mm": [
+    8000,
+    2000,
+    2500
+  ],
+  "track_pitch_mm": 2000,
+  "track_placement_assumption": "田块边界",
+  "supporting_rails_per_trolley": 1,
+  "active_trolleys": 1,
+  "cart_x_centres_mm": [
+    450,
+    7550
+  ],
+  "head_x_trim_mm": [
+    -350,
+    350
+  ],
+  "illustrated_z_retraction_mm": [
+    0,
+    840.0
+  ],
+  "seed_centres_mm": {
+    "x": [
+      100,
+      7900
+    ],
+    "y": [
+      100,
+      1900
+    ]
+  },
+  "column_section_assumption_mm": [
+    80,
+    80
+  ],
+  "automatic_column_crossing": false,
+  "automatic_rail_transfer": false,
+  "validation": {
+    "unit_valid_solids": 218,
+    "extreme_positions": 81,
+    "exact_overlap_checks": 0,
+    "continuous_x_part_envelopes": 676,
+    "own_track_checks": 53,
+    "lower_head_sleeve_pair_checks": 375,
+    "minimum_modelled_column_gap_mm": 15.61,
+    "minimum_neighbor_track_gap_mm": 98.0,
+    "checked_against": "暂定柱脚、80mm立柱、上梁、端止挡、限位外形和吊点",
+    "not_validated": [
+      "内部运动副干涉与装配公差",
+      "驱动机构完整性",
+      "承载与挠度",
+      "停车距离",
+      "70°C高湿高CO2评级"
+    ]
+  },
+  "step_exports": [
+    {
+      "file": "V2_8米单轨吊装播种机_单区块.step",
+      "valid_solids": 218,
+      "bytes": 6364104
+    },
+    {
+      "file": "V2_8米单轨吊装播种机_三块田总览.step",
+      "valid_solids": 286,
+      "bytes": 8732125
+    },
+    {
+      "file": "V2_8米单轨吊装播种机_轨道与装置.step",
+      "valid_solids": 189,
+      "bytes": 5398315
+    }
+  ]
+}

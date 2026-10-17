@@ -1,0 +1,7 @@
+{
+  "server_ip": "172.20.10.2",
+  "jetson_ip": "172.20.10.4",
+  "api_port": 8000,
+  "h5_port": 5173,
+  "admin_port": 9528
+}

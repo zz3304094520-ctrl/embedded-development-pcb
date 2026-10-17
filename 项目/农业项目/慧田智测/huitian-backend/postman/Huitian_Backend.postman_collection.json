@@ -1,0 +1,212 @@
+{
+  "info": {
+    "_postman_id": "10611593-06c4-4b1b-aa52-c5f31ba56cf4",
+    "name": "慧田智测后端 API",
+    "description": "本地 FastAPI + SQLite 后端测试集合。先启动服务并选择“慧田智测本地环境”。",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. 健康检查",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1/health"
+      }
+    },
+    {
+      "name": "2. 创建农场",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "pm.environment.set('farm_id', data.id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Postman 番茄农场\",\n  \"location\": \"上海市金山区\",\n  \"description\": \"Postman 创建的测试农场\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/farms"
+      }
+    },
+    {
+      "name": "3. 创建地块",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "pm.environment.set('plot_id', data.id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"farm_id\": {{farm_id}},\n  \"name\": \"Postman A1 地块\",\n  \"crop_type\": \"番茄\",\n  \"area\": 3.5\n}"
+        },
+        "url": "{{base_url}}/api/v1/plots"
+      }
+    },
+    {
+      "name": "4. 创建设备",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "pm.environment.set('device_id', data.id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"plot_id\": {{plot_id}},\n  \"device_code\": \"postman-weather-001\",\n  \"name\": \"Postman 气象仪\",\n  \"device_type\": \"weather_station\",\n  \"communication_type\": \"http\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/devices"
+      }
+    },
+    {
+      "name": "5. 创建高温规则",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"plot_id\": {{plot_id}},\n  \"name\": \"Postman 高温规则\",\n  \"metric\": \"air_temperature\",\n  \"operator\": \"gt\",\n  \"threshold\": 32,\n  \"severity\": \"warning\",\n  \"enabled\": true,\n  \"message\": \"空气温度过高\"\n}"
+        },
+        "url": "{{base_url}}/api/v1/alerts/rules"
+      }
+    },
+    {
+      "name": "6. HTTP 上报传感器数据",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"device_code\": \"postman-weather-001\",\n  \"recorded_at\": \"2026-06-18T08:00:00Z\",\n  \"readings\": [\n    {\n      \"metric\": \"air_temperature\",\n      \"value\": 35.5,\n      \"unit\": \"celsius\",\n      \"quality\": \"good\"\n    },\n    {\n      \"metric\": \"air_humidity\",\n      \"value\": 72,\n      \"unit\": \"percent\",\n      \"quality\": \"good\"\n    }\n  ]\n}"
+        },
+        "url": "{{base_url}}/api/v1/telemetry"
+      }
+    },
+    {
+      "name": "7. 查询最新数据",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1/telemetry/latest/postman-weather-001"
+      }
+    },
+    {
+      "name": "8. 查询告警",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const data = pm.response.json();",
+              "if (data.length) pm.environment.set('alert_id', data[0].id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/v1/alerts"
+      }
+    },
+    {
+      "name": "9. 确认告警",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "{{base_url}}/api/v1/alerts/{{alert_id}}/acknowledge"
+      }
+    },
+    {
+      "name": "10. 创建设备控制命令",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"device_id\": {{device_id}},\n  \"command_type\": \"pump_on\",\n  \"parameters\": {\n    \"duration_seconds\": 30\n  }\n}"
+        },
+        "url": "{{base_url}}/api/v1/commands"
+      }
+    },
+    {
+      "name": "11. 上传诊断图片",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "plot_id",
+              "value": "{{plot_id}}",
+              "type": "text"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": []
+            }
+          ]
+        },
+        "url": "{{base_url}}/api/v1/diagnosis"
+      }
+    }
+  ]
+}
+

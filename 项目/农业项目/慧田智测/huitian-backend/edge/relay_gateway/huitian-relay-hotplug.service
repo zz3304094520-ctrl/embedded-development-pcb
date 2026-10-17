@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart Huitian relay Agent after USB relay attachment
+ConditionPathExists=/dev/serial/by-id/usb-STMicroelectronics_STM32_Virtual_ComPort_in_FS_Mode_7E7A69E21138-if00
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl --no-block restart huitian-relay-agent.service
+NoNewPrivileges=true
+PrivateTmp=true
+

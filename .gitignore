@@ -1,0 +1,25 @@
+# 本机环境、密钥与运行产物
+.env
+.env.*
+!.env.example
+**/edge_camera_config.json
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.pid
+*.tsbuildinfo
+*.db
+*.db-*
+.pytest_cache/
+.playwright-cli/
+.runtime-logs/
+.claude/
+.codex/
+.pio/
+dist/
+build/
+~$*
+desktop.ini

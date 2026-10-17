@@ -1,0 +1,5 @@
+# 保留CAD工程与模型的原始字节内容。
+*.step binary
+*.stp binary
+*.eprj2 binary
+*.epro2 binary

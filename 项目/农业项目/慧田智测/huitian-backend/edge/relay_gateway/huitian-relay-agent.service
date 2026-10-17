@@ -1,0 +1,28 @@
+[Unit]
+Description=Huitian Jetson HTTP dual-channel relay Agent
+After=network-online.target
+Wants=network-online.target
+Conflicts=fieldmate-edge.service
+
+[Service]
+Type=simple
+User=qiongyi
+Group=qiongyi
+SupplementaryGroups=dialout
+WorkingDirectory=/home/qiongyi/huitian-relay-gateway
+EnvironmentFile=/etc/huitian-relay-agent.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/home/qiongyi/huitian-relay-gateway/.venv/bin/python -m relay_gateway
+Restart=always
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

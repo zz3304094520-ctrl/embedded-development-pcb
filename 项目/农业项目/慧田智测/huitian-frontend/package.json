@@ -1,0 +1,24 @@
+{
+  "name": "huitian-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173 --strictPort",
+    "build": "vue-tsc --noEmit --incremental false && tsc -p tsconfig.node.json --noEmit --incremental false && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173 --strictPort",
+    "typecheck": "vue-tsc --noEmit --incremental false && tsc -p tsconfig.node.json --noEmit --incremental false"
+  },
+  "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
+    "gsap": "^3.15.0",
+    "vue": "^3.5.38"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.0",
+    "vue-tsc": "^3.1.5"
+  }
+}

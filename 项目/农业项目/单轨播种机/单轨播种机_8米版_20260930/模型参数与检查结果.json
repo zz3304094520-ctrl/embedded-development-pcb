@@ -1,0 +1,62 @@
+{
+  "nominal_bay_mm": [
+    8000.0,
+    2000.0,
+    2500.0
+  ],
+  "beds": 3,
+  "track_pitch_mm": 2000.0,
+  "track_placement": "edge",
+  "active_trolleys": 1,
+  "trolley_supporting_tracks": 1,
+  "cart_x_centres_mm": [
+    450.0,
+    7550.0
+  ],
+  "head_x_trim_mm": [
+    -350.0,
+    350.0
+  ],
+  "seed_centres_mm": {
+    "x": [
+      100,
+      7900
+    ],
+    "y_in_bed": [
+      100,
+      1900
+    ]
+  },
+  "column_pitch_mm": 8000.0,
+  "provisional_column_section_mm": [
+    80,
+    80
+  ],
+  "automatic_column_crossing": false,
+  "automatic_rail_transfer": false,
+  "thermal_and_structural_rating_validated": false,
+  "collision": {
+    "extreme_position_checks": 27,
+    "continuous_x_envelopes_checked": 172,
+    "minimum_modelled_column_clearance_mm": 15.0,
+    "neighbor_track_clearance_mm": 100.0,
+    "supporting_track_penetration_volume_mm3": 0.0
+  },
+  "step_exports": [
+    {
+      "path": "C:\\Users\\张铸\\Documents\\Codex\\2026-09-22\\zh\\outputs\\单轨播种机_8米版_20260930\\8米单轨吊装播种机_三块田总览.step",
+      "valid_solids": 98,
+      "bytes": 1707034
+    },
+    {
+      "path": "C:\\Users\\张铸\\Documents\\Codex\\2026-09-22\\zh\\outputs\\单轨播种机_8米版_20260930\\8米单轨吊装播种机_单区块.step",
+      "valid_solids": 66,
+      "bytes": 1037677
+    },
+    {
+      "path": "C:\\Users\\张铸\\Documents\\Codex\\2026-09-22\\zh\\outputs\\单轨播种机_8米版_20260930\\8米单轨吊装播种机_轨道与装置.step",
+      "valid_solids": 53,
+      "bytes": 741610
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "backend_url": "http://172.20.10.2:8000",
+  "poll_interval_seconds": 5,
+  "http_timeout_seconds": 3,
+  "offline_after_failures": 2,
+  "sensors": [
+    {
+      "name": "气象环境传感器",
+      "device_code": "weather-001",
+      "driver": "renke_fsxcs",
+      "port": "/dev/serial/by-path/platform-3610000.usb-usb-0:1.1:1.0-port0",
+      "baudrate": 4800,
+      "slave_address": 1,
+      "timeout_seconds": 1.2,
+      "enabled": true
+    },
+    {
+      "name": "三杯式风速传感器",
+      "device_code": "wind-speed-001",
+      "driver": "wind_speed_fsjt_n01",
+      "port": "/dev/serial/by-path/platform-3610000.usb-usb-0:1.1:1.0-port0",
+      "baudrate": 4800,
+      "slave_address": 2,
+      "timeout_seconds": 1.2,
+      "enabled": true,
+      "disabled_reason": "接入同一RS485总线前，先单独将设备地址从1修改为2"
+    },
+    {
+      "name": "八方位风向传感器",
+      "device_code": "wind-direction-001",
+      "driver": "wind_direction_fxjt_n01_8",
+      "port": "/dev/serial/by-path/platform-3610000.usb-usb-0:1.1:1.0-port0",
+      "baudrate": 4800,
+      "slave_address": 3,
+      "timeout_seconds": 1.2,
+      "enabled": true,
+      "disabled_reason": "接入同一RS485总线前，先单独将设备地址从1修改为3"
+    },
+    {
+      "name": "土壤多参数传感器",
+      "device_code": "soil-001",
+      "driver": "soil_temp_moisture_ec_npk",
+      "port": "/dev/serial/by-path/platform-3610000.usb-usb-0:1.3:1.0-port0",
+      "baudrate": 9600,
+      "slave_address": 1,
+      "timeout_seconds": 1.2,
+      "enabled": true,
+      "disabled_reason": ""
+    }
+  ]
+}

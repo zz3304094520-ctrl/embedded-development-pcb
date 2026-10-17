@@ -1,0 +1,13 @@
+当前地址：
+H5：http://172.20.10.2:5173
+管理端：http://172.20.10.2:9528
+后端文档：http://172.20.10.2:8000/docs
+视频代理：http://172.20.10.2:8000/api/v1/camera/edge-orin-001/video
+
+
+####
+启动命令
+cd D:\慧田智测
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\start-all.ps1
+
+####

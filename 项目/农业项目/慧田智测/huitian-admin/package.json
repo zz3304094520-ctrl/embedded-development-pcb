@@ -1,0 +1,25 @@
+{
+  "name": "huitian-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 9528",
+    "build": "vue-tsc --noEmit --incremental false && tsc -p tsconfig.node.json --noEmit --incremental false && vite build",
+    "typecheck": "vue-tsc --noEmit --incremental false && tsc -p tsconfig.node.json --noEmit --incremental false",
+    "preview": "vite preview --host 0.0.0.0 --port 9529"
+  },
+  "dependencies": {
+    "echarts": "^6.1.0",
+    "element-plus": "^2.14.3",
+    "vue": "^3.5.40",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.5",
+    "vue-tsc": "^3.1.5"
+  }
+}

@@ -1,0 +1,2 @@
+# Start or reconnect the relay Agent whenever this exact STM32 USB relay appears.
+ACTION=="add", SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="0483", ENV{ID_MODEL_ID}=="5740", ENV{ID_SERIAL_SHORT}=="7E7A69E21138", TAG+="systemd", ENV{SYSTEMD_WANTS}+="huitian-relay-hotplug.service"

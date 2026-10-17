@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+data/*.db
+data/*.db-*
+uploads/*
+!uploads/.gitkeep
+!data/.gitkeep
+server*.log
+simulator*.log
+*.pid
+.idea/
+.vscode/
